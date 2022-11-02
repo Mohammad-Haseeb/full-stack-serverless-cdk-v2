@@ -1,5 +1,7 @@
 # Welcome to your CDK TypeScript project
 
+## S3 configured with aws-cdk version 2
+
 This is a blank project for CDK development with TypeScript.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
