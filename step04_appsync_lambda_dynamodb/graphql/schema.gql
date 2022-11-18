@@ -1,0 +1,24 @@
+type Todo {
+  id: ID!
+  title: String!
+  done: Boolean!
+}
+
+input TodoInput {
+  id: ID!
+  title: String!
+  done: Boolean!
+}
+
+type Query {
+  getTodosy: [Todo]
+}
+
+type Mutation {
+  addTodo(todo: TodoInput!): Todo
+
+}
+type Subscription {
+  onAddTodo: Todo
+    @aws_subscribe(mutations: ["addTodo"])
+}

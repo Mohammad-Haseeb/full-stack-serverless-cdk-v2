@@ -11,13 +11,10 @@ export class Step03AppsyncLambdaAsDatasourceStack extends cdk.Stack {
 
     const api = new appsync.GraphqlApi(this, 'Api', {
       name: 'demo',
-      schema: appsync.Schema.fromAsset(path.join('graphql/schema.gql')),
+      schema:appsync.Schema.fromAsset(path.join(__dirname,"../",'graphql/schema.gql')),
       authorizationConfig: {
         defaultAuthorization: {
           authorizationType: appsync.AuthorizationType.API_KEY,
-          apiKeyConfig: {
-            expires: cdk.Expiration.after(cdk.Duration.days(365))   ///set expiration for API Key
-          }
         },
       },
       xrayEnabled: true,
@@ -44,11 +41,6 @@ export class Step03AppsyncLambdaAsDatasourceStack extends cdk.Stack {
     lambdaDataSource.createResolver({
       typeName: 'Query',
       fieldName:"notes"
-    })
-
-    lambdaDataSource.createResolver({
-      typeName: 'Query',
-      fieldName:"customNote"
     })
 
   }

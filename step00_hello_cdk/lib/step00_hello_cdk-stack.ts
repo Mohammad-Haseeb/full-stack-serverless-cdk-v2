@@ -12,7 +12,7 @@ export class Step00HelloCdkStack extends cdk.Stack {
     // const queue = new sqs.Queue(this, 'Step00HelloCdkQueue', {
     //   visibilityTimeout: cdk.Duration.seconds(300)
     // });
-    new cdk.aws_s3.Bucket(this,"helloBucket",{
+    new cdk.aws_s3.Bucket(this,"helloBucketTesting",{
       versioned:true
     })
   }
